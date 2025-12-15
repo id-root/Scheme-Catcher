@@ -526,6 +526,11 @@ for heap_brute in range(16):
 
 log.info("\n[!] All attempts exhausted. Exploit failed.")
 ```
+## Credits
+
+- **FSOP Implementation:** This exploit uses `io_file.py` from 
+  [RoderickChan/pwncli](https://github.com/RoderickChan/pwncli/blob/main/pwncli/utils/io_file.py)
+  by Roderick Chan
 
 ---
 
