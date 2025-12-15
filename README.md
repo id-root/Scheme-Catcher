@@ -191,7 +191,7 @@ Got the hidden path as `/7ln6Z1X9EF
     
 - **curl** - HTTP requests
 
-#  [[Scheme Catcher part 2|Next Bin]]
+#  [[Scheme Catcher part 2|Next Bin]] 
 
 
 
