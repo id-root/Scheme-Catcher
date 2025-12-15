@@ -69,7 +69,7 @@ On this directory we found a zip file which is carying our first binary `beacon.
 file beacon.bin
 # beacon.bin: ELF 64-bit LSB executable, x86-64
 
-checksec beacon.bin
+checksec --file=beacon.bin
 # Arch:     amd64-64-little
 # RELRO:    Partial RELRO
 # Stack:    No canary found
