@@ -14,7 +14,8 @@ tags:
 The actual functionality of the program is concealed by a custom encrypted `.easter` section found in the `beacon.bin` binary. We found a self-decrypting stub that XORs the encrypted code with key `0x0D` using dynamic analysis with GDB. The `payload_load()` function uncovered a hardcoded HTTP path `/7ln6Z1X9EF` built from hex immediates after decryption. This path resulted in a directory listing with the next stage binary and `foothold.txt` (Second flag).
 ### Finding the first binary.
 **Scanning using nmap**
-```$ nmap -sV -p- 10.48.190.204
+```
+$ nmap -sV -p- 10.48.190.204
 
 Starting Nmap 7.94 ( https://nmap.org ) at 2025-12-11 12:00 IST
 Nmap scan report for 10.48.190.204
