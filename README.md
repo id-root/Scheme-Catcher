@@ -34,7 +34,7 @@ checksec beacon.bin
 - 64-bit Linux executable
 - No stack canary (vulnerable to buffer overflows)
 - NX enabled (no shellcode on stack)
-- No PIE (static addresses) - [Reference](https://cymulate.com/blog/binary-exploitation/)
+- No PIE (static addresses) 
 
 ### Static Analysis
 
