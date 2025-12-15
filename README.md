@@ -12,6 +12,53 @@ tags:
 ## Summary 
 
 The actual functionality of the program is concealed by a custom encrypted `.easter` section found in the `beacon.bin` binary. We found a self-decrypting stub that XORs the encrypted code with key `0x0D` using dynamic analysis with GDB. The `payload_load()` function uncovered a hardcoded HTTP path `/7ln6Z1X9EF` built from hex immediates after decryption. This path resulted in a directory listing with the next stage binary and `foothold.txt` (Second flag).
+### Finding the first binary.
+**Scanning using nmap**
+```$ nmap -sV -p- 10.48.190.204
+
+Starting Nmap 7.94 ( https://nmap.org ) at 2025-12-11 12:00 IST
+Nmap scan report for 10.48.190.204
+Host is up (0.045s latency).
+Not shown: 65533 closed tcp ports (conn-refused)
+PORT     STATE SERVICE VERSION
+80/tcp   open  http    Apache/2.4.58 (Ubuntu)
+9004/tcp open  unknown
+21337/tcp open  unknown
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 234.56 seconds
+```
+After the scan we used `gobuster` to list hidden directory on port 80
+```
+$ gobuster dir -u http://10.48.190.204 -w /usr/share/wordlists/dirb/common.txt 
+
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.48.190.204
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirb/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Extensions:              zip,bin,txt
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.htaccess            (Status: 403) [Size: 279]
+/.htpasswd            (Status: 403) [Size: 279]
+/.hta                 (Status: 403) [Size: 279]
+/dev                  (Status: 301) [Size: 314] [--> http://10.48.190.204/dev/]
+/index.html           (Status: 200) [Size: 10918]
+/server-status        (Status: 403) [Size: 279]
+Progress: 18456 / 18460 (99.98%)
+===============================================================
+Finished
+===============================================================
+```
+On this directory we found a zip file which is carying our first binary `beacon.bin`
 
 ## Initial Reconnaissance
 
