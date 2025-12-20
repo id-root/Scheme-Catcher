@@ -233,5 +233,7 @@ curl http://10.48.190.204/7ln6Z1X9EF/foothold.txt
 - **curl** - HTTP requests
 
 ---
+## Infographics
+![](unnamed.png)
 
 **Next:** [Scheme-Catcher-part-2.md](Scheme-Catcher-part-2.md)
