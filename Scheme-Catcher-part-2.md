@@ -587,5 +587,6 @@ log.info("\n[!] All attempts exhausted. Exploit failed.")
 - Root shell obtained immediately after RCE
 
 ---
-
+## Infographics
+![](unnamed.png)
 **Previous:** [Scheme-Catcher.md](README.md)
