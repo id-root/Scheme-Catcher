@@ -224,9 +224,6 @@ curl http://10.48.190.204/7ln6Z1X9EF/foothold.txt
 - **strings** - Static string extraction
 - **GDB** - Dynamic debugging
 - **objdump** - Disassembly
-- **Python/struct** - Binary data parsing
-- **curl** - HTTP requests
-
 ---
 
 
