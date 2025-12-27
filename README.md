@@ -1,9 +1,4 @@
----
-tags:
-  - ctf
-  - TryHackMe
-  - Binary-exploitation
----
+# Scheme-Catcher
 
 - **Challenge:** beacon.bin (First Stage)  
 - **Category:** Binary Exploitation / Reverse Engineering  
