@@ -588,6 +588,8 @@ for heap_brute in range(16):
 
 log.info("\n[!] All attempts exhausted. Exploit failed.")
 ```
+**Note:** _This script might fail few times. So try to run this script on multiple terminals._
+
 ## Credits
 
 - **FSOP Implementation:** This exploit uses `io_file.py` from 
