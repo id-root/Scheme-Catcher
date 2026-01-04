@@ -3,6 +3,7 @@
 - **Challenge:** beacon.bin (First Stage)  
 - **Category:** Binary Exploitation / Reverse Engineering  
 - **Difficulty:** Insane
+- **Link to the room:** ![Scheme Catcher](https://tryhackme.com/room/sq2-aoc2025-JxiOKUSD9R)
 
 ## Summary 
 
