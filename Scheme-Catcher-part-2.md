@@ -1,10 +1,8 @@
-## Complete CTF Writeup: From Heap Exploit to Root Flag
+## Scheme-Catcher Part 2
 
 ---
 
-## Challenge Overview 
 
-**Difficulty:** ⭐⭐⭐⭐⭐ Insane
 
 **Flags Captured:**
 - User Flag: `THM{theres_someth1g_in_th3_w4t3r_that_cannot_l3ak}`
